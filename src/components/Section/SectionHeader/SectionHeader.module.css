@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+}
+
+.wrapper {
+    color: whitesmoke;
+    width: 10rem;
+    padding: .5rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+}

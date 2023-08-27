@@ -1,0 +1,12 @@
+.container {
+  background: #0b666a;
+  min-height: 70vh;
+  border-radius: 0.3rem;
+  padding: 1em;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    min-height: 30vh;
+  }
+}

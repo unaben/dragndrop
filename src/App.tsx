@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { ITask } from "./model/task.type";
+import FormInput from "./components/FormInput/FormInput";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ListTask from "./components/ListTask/ListTask";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Header from "./components/Header/Header";
+import style from "./App.module.css";
 
 function App() {
+  const [tasks, setTasks] = useLocalStorage<ITask[]>("tasks", []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className={style.container}>
+        <Header />
+        <FormInput {...{ tasks, setTasks }} />
+        <ListTask {...{ tasks, setTasks }} />
+      </div>
+      <ToastContainer />
+    </DndProvider>
   );
 }
 
