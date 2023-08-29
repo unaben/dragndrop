@@ -25,3 +25,7 @@
   width: 2rem;
   min-height: 1.5rem;
 }
+
+.icon:hover {
+  color: firebrick;
+}
