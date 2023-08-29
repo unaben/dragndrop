@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import { ITask } from "../../model/task.type";
 import SectionHeader from "./SectionHeader/SectionHeader";
 import { useDrop } from "react-dnd";
-import style from './Section.module.css'
+import cn from 'classnames'
+import style from "./Section.module.css";
 
 type SectionProps = {
   status: string;
@@ -58,7 +59,7 @@ const Section: FC<SectionProps> = ({
   }
 
   return (
-    <div ref={drop} className={style.container}>
+    <div ref={drop} className={cn(style.container, {[style.over]: isOver})}>
       <SectionHeader
         {...{ headingText, taskToMap, tasks, setTasks, bgColor }}
       />
